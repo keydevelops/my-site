@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+body {
+  background-color: #000;
+  font-family: 'Russo One', monospace !important;
+  color: #fff;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  margin: 10vh;
+}
+  
+.lang-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-right: 2vh !important;
+  margin-left: 2vh !important;
+}
+
+.lang-button:hover {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sel-lang {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.typing-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ font-family: 'Russo One', monospace;
+  font-size: 28px; 
+  color: #fff;
+  border-right: 2px solid #fff;
+  padding-right: 10px;
+  animation: blink-caret 0.75s step-end infinite alternate; /* Исправлено .75s -> 0.75s */
+  white-space: nowrap;
+  overflow: hidden;
+}
+  
+  
+.site-container {
+  top: 50%;
+  left: 50%;
+  font-family: 'Russo One', monospace;
+  font-size: 28px;
+  color: #fff;
+  padding-right: 10px;
+}
+  
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+.buttons {
+    
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.site-container, .projects-container, .copyright-container {
+  border: 2px solid white;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.projects-container {
+  margin-top: 7vh;
+  border: 2px solid white;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: 'Russo One', monospace;
+  font-size: 18px;
+}
+
+.copyright-container {
+  margin-top: 7vh;
+  border: 2px solid white;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: 'Russo One', monospace;
+  font-size: 15px;
+}
+  
