@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    function fetcher() {
+        fetch('/assets/css/explosion.png')
+        fetch('/assets/sounds/explode.mp3')
+        fetch('/assets/sounds/squeaking.mp3')
+    }
+    
     function loadTyping(text, container, startup) {
         const element = document.getElementById(container);
         const pageElement = document.getElementById('sel-lang');
@@ -94,22 +100,20 @@ document.addEventListener("DOMContentLoaded", () => {
         
     });
 
+    window.onload = fetcher()
+
     loadTyping('KeyDevS', 'typing', true);
     document.getElementById('explode').addEventListener('click', () => {
-        // Hide the explode button
+
         const explodeContainer = document.getElementById('explode-container');
         explodeContainer.style.display = 'none';
 
-        // Create explosion effect
         const explosionEffect = document.createElement('div');
         explosionEffect.classList.add('explosion');
         document.body.appendChild(explosionEffect);
 
-        // Play the explosion sound
         const explodeSound = new Audio('/assets/sounds/explode.mp3');
         explodeSound.play();
-
-        // Apply red background to the site after 0.2 seconds
         setTimeout(() => {
             document.body.style.backgroundColor = 'red';
             document.body.style.transition = 'background-color 0.5s ease';
@@ -131,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 4500)
         }, 350);
 
-        // Remove explosion effect after animation completes
         explosionEffect.addEventListener('animationend', () => {
             document.body.removeChild(explosionEffect);
         });
