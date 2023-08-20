@@ -3,7 +3,7 @@ body {
   background-color: #000;
   font-family: 'Russo One', monospace !important;
   color: #fff;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  transition: background-color 0.5s ease, transform 0.5s ease;
   margin: 10vh;
 }
   
@@ -94,3 +94,46 @@ body {
   font-size: 15px;
 }
   
+.explode-container {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-right: 2vh !important;
+  margin-left: 2vh !important;
+  font-size: 28px;
+  
+}
+.explode {
+  background-color: red;
+}
+
+.explosion {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: url('explosion.png') center center no-repeat;
+  background-size: cover;
+  z-index: 9999;
+  animation: explode-animation 1s forwards;
+}
+
+@keyframes explode-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+h1 {
+  color: white !important;
+}
+
+.explodedd {
+  margin-top: 20vh !important;
+}

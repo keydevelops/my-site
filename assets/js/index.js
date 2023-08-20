@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
 
                 copyright('© 2023, KeyDevS')
+                setTimeout(() => {
+                    const explodecontainer = document.getElementById('explode-container');
+                    const explodebutton = document.getElementById('explode');
+                    explodebutton.innerHTML = 'Взрыв сайта';
+                    explodecontainer.style.display = 'block';
+                }, 3500)
             }, 2000)
         }, 5999)
     });
@@ -77,10 +83,58 @@ document.addEventListener("DOMContentLoaded", () => {
             3. InfinityRoom`)
             setTimeout(() => {
                 copyright('© 2023, KeyDevS')
+                setTimeout(() => {
+                    const explodebutton = document.getElementById('explode');
+                    const explodecontainer = document.getElementById('explode-container');
+                    explodebutton.innerHTML = 'Explode site';
+                    explodecontainer.style.display = 'block';
+                }, 3500)
             }, 2000)
         }, 5999)
         
     });
 
     loadTyping('KeyDevS', 'typing', true);
+    document.getElementById('explode').addEventListener('click', () => {
+        // Hide the explode button
+        const explodeContainer = document.getElementById('explode-container');
+        explodeContainer.style.display = 'none';
+
+        // Create explosion effect
+        const explosionEffect = document.createElement('div');
+        explosionEffect.classList.add('explosion');
+        document.body.appendChild(explosionEffect);
+
+        // Play the explosion sound
+        const explodeSound = new Audio('/assets/sounds/explode.mp3');
+        explodeSound.play();
+
+        // Apply red background to the site after 0.2 seconds
+        setTimeout(() => {
+            document.body.style.backgroundColor = 'red';
+            document.body.style.transition = 'background-color 0.5s ease';
+            document.body.style.transform = 'translateY(-50vh)';
+            const squeakingSound = new Audio('/assets/sounds/squeaking.mp3');
+            squeakingSound.play();
+            setTimeout(() => {
+                const element1 = document.getElementById('site-container');
+                const element2 = document.getElementById('projects-container');
+                const element3 = document.getElementById('copyright-container');
+                const element4 = document.getElementById('explode-container');
+                const exploded = document.getElementById('explodedd');
+                element1.style.display = 'none';
+                element2.style.display = 'none';
+                element3.style.display = 'none';
+                element4.style.display = 'none';
+                document.body.style.transform = 'translateY(5vh)';
+                exploded.style.display = 'block';
+            }, 4500)
+        }, 350);
+
+        // Remove explosion effect after animation completes
+        explosionEffect.addEventListener('animationend', () => {
+            document.body.removeChild(explosionEffect);
+        });
+    });
+
 });
