@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    function fetcher() {
-        fetch('/assets/imgs/explosion.png')
-        fetch('/assets/sounds/explode.mp3')
-        fetch('/assets/sounds/squeaking.mp3')
-    }
-    window.onload = fetcher()
-
     function loadTyping(text, container, startup) {
         const element = document.getElementById(container);
         const pageElement = document.getElementById('sel-lang');
@@ -103,16 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadTyping('KeyDevS', 'typing', true);
     document.getElementById('explode').addEventListener('click', () => {
+        // Hide the explode button
         const explodeContainer = document.getElementById('explode-container');
         explodeContainer.style.display = 'none';
 
+        // Create explosion effect
         const explosionEffect = document.createElement('div');
         explosionEffect.classList.add('explosion');
         document.body.appendChild(explosionEffect);
 
+        // Play the explosion sound
         const explodeSound = new Audio('/assets/sounds/explode.mp3');
         explodeSound.play();
 
+        // Apply red background to the site after 0.2 seconds
         setTimeout(() => {
             document.body.style.backgroundColor = 'red';
             document.body.style.transition = 'background-color 0.5s ease';
