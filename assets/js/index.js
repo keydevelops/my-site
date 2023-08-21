@@ -1,109 +1,140 @@
-$(document).ready(function () {
-    function fetcher() {
-        $.get('/assets/css/explosion.png');
-        $.get('/assets/sounds/explode.mp3');
-        $.get('/assets/sounds/squeaking.mp3');
-    }
-
+document.addEventListener("DOMContentLoaded", () => {
     function loadTyping(text, container, startup) {
-        const element = $('#' + container);
-        const pageElement = $('#sel-lang');
+        const element = document.getElementById(container);
+        const pageElement = document.getElementById('sel-lang');
         let index = 0;
-        pageElement.css('opacity', '0');
-        element.css('display', 'block');
+        pageElement.style.opacity = '0';
+        element.style.display = 'block';
 
-        const typingEffect = setInterval(function () {
+        const typingEffect = setInterval(() => {
             if (index < text.length) {
-                element.append(text[index]);
+                element.innerHTML += text[index];
                 index++;
             } else {
                 clearInterval(typingEffect);
-                element.css('animation', '');
-                if (startup) {
-                    setTimeout(function () {
-                        element.css('display', 'none');
-                        element.css('width', '0');
-                        pageElement.css('opacity', '1');
-                        pageElement.css('display', 'block');
+                element.style.animation = '';
+                if (startup === true) {
+                    setTimeout(() => {
+                        element.style.display = 'none';
+                        element.style.width = '0';
+                        pageElement.style.opacity = '1';
+                        pageElement.style.display = 'block';
                     }, 2000);
                 } else {
-                    element.css('display', 'block');
+                    element.style.display = 'block';
                 }
             }
         }, 4500 / text.length);
     }
 
-    function showContent(text, container) {
-        const element = $('#site-container');
-        const pageElement = $('#sel-lang');
-        pageElement.css('display', 'none');
-        element.css('display', 'block');
-        element.css('width', 'auto');
-        loadTyping(text, container, false);
+    function aboutme(text) {
+        const element = document.getElementById('site-container');
+        const pageElement = document.getElementById('sel-lang');
+        pageElement.style.display = 'none';
+        element.style.display = 'block';
+        element.style.width = 'auto';
+        loadTyping(text, 'site-container', false);
     }
 
-    $('#russ').click(function () {
-        showContent('Всем привет! Я ключ или KeyDevS...', 'site-container');
-        setTimeout(function () {
-            showContent('Мои проекты:\n1. Этот сайт,\n2. Dynar messanger\n3. InfinityRoom', 'projects-container');
-            setTimeout(function () {
-                showContent('© 2023, KeyDevS', 'copyright-container');
-                setTimeout(function () {
-                    const explodeContainer = $('#explode-container');
-                    const explodeButton = $('#explode');
-                    explodeButton.html('Взрыв сайта');
-                    explodeContainer.css('display', 'block');
-                }, 3500);
-            }, 2000);
-        }, 5999);
+    function myprojects(text) {
+        const element = document.getElementById('site-container');
+        const pageElement = document.getElementById('sel-lang');
+        pageElement.style.display = 'none';
+        element.style.display = 'block';
+        element.style.width = 'auto';
+        loadTyping(text, 'projects-container', false);
+    }
+
+    function copyright(text) {
+        const element = document.getElementById('site-container');
+        const pageElement = document.getElementById('sel-lang');
+        pageElement.style.display = 'none';
+        element.style.display = 'block';
+        element.style.width = 'auto';
+        loadTyping(text, 'copyright-container', false);
+    }
+
+    document.getElementById('russ').addEventListener('click', () => {
+        aboutme('Всем привет! Я ключ или KeyDevS. Я создаю всякие штучки на PHP, Python, Unity, C#, Html. Я создавал лёгкие сайты, приложения, и так далее. Я буду изучать CSS и SCSS чтобы делать красивые сайты. Я всегда буду изучать новые технологии и инструменты, чтобы стать еще лучше в своей работе.');
+        setTimeout(() => {
+            myprojects(`Мои проекты:
+            1. Этот сайт,
+            2. Dynar messanger
+            3. InfinityRoom`)
+            setTimeout(() => {
+
+                copyright('© 2023, KeyDevS')
+                setTimeout(() => {
+                    const explodecontainer = document.getElementById('explode-container');
+                    const explodebutton = document.getElementById('explode');
+                    explodebutton.innerHTML = 'Взрыв сайта';
+                    explodecontainer.style.display = 'block';
+                }, 3500)
+            }, 2000)
+        }, 5999)
     });
 
-    $('#engl').click(function () {
-        showContent("Hi everyone, I'm Key or KeyDevS...", 'site-container');
-        setTimeout(function () {
-            showContent('My projects:\n1. This site,\n2. Dynar messanger\n3. InfinityRoom', 'projects-container');
-            setTimeout(function () {
-                showContent('© 2023, KeyDevS', 'copyright-container');
-                setTimeout(function () {
-                    const explodeButton = $('#explode');
-                    const explodeContainer = $('#explode-container');
-                    explodeButton.html('Explode site');
-                    explodeContainer.css('display', 'block');
-                }, 3500);
-            }, 2000);
-        }, 5999);
+    document.getElementById('engl').addEventListener('click', () => {
+        aboutme("Hi everyone, I'm Key or KeyDevS. I create stuff in PHP, Python, Unity, C#, Html. I've been building lightweight websites, apps, and so on. I will learn CSS and SCSS to make beautiful sites. I will always be learning new techniques and tools to become even better at what I do.");
+        setTimeout(() => {
+            myprojects(`My projects:
+            1. This site,
+            2. Dynar messanger
+            3. InfinityRoom`)
+            setTimeout(() => {
+                copyright('© 2023, KeyDevS')
+                setTimeout(() => {
+                    const explodebutton = document.getElementById('explode');
+                    const explodecontainer = document.getElementById('explode-container');
+                    explodebutton.innerHTML = 'Explode site';
+                    explodecontainer.style.display = 'block';
+                }, 3500)
+            }, 2000)
+        }, 5999)
+        
     });
-
-    $(window).on('load', fetcher);
 
     loadTyping('KeyDevS', 'typing', true);
+    document.getElementById('explode').addEventListener('click', () => {
+        // Hide the explode button
+        const explodeContainer = document.getElementById('explode-container');
+        explodeContainer.style.display = 'none';
 
-    $('#explode').click(function () {
-        const explodeContainer = $('#explode-container');
-        explodeContainer.css('display', 'none');
+        // Create explosion effect
+        const explosionEffect = document.createElement('div');
+        explosionEffect.classList.add('explosion');
+        document.body.appendChild(explosionEffect);
 
-        const explosionEffect = $('<div></div>').addClass('explosion');
-        $('body').append(explosionEffect);
-
+        // Play the explosion sound
         const explodeSound = new Audio('/assets/sounds/explode.mp3');
         explodeSound.play();
 
-        setTimeout(function () {
-            $('body').css('background-color', 'red');
-            $('body').css('transition', 'background-color 0.5s ease');
-            $('body').css('transform', 'translateY(-50vh)');
+        // Apply red background to the site after 0.2 seconds
+        setTimeout(() => {
+            document.body.style.backgroundColor = 'red';
+            document.body.style.transition = 'background-color 0.5s ease';
+            document.body.style.transform = 'translateY(-50vh)';
             const squeakingSound = new Audio('/assets/sounds/squeaking.mp3');
             squeakingSound.play();
-
-            setTimeout(function () {
-                $('.container').css('display', 'none');
-                $('body').css('transform', 'translateY(5vh)');
-                $('#exploded').css('display', 'block');
-            }, 4500);
+            setTimeout(() => {
+                const element1 = document.getElementById('site-container');
+                const element2 = document.getElementById('projects-container');
+                const element3 = document.getElementById('copyright-container');
+                const element4 = document.getElementById('explode-container');
+                const exploded = document.getElementById('explodedd');
+                element1.style.display = 'none';
+                element2.style.display = 'none';
+                element3.style.display = 'none';
+                element4.style.display = 'none';
+                document.body.style.transform = 'translateY(5vh)';
+                exploded.style.display = 'block';
+            }, 4500)
         }, 350);
 
-        explosionEffect.on('animationend', function () {
-            explosionEffect.remove();
+        // Remove explosion effect after animation completes
+        explosionEffect.addEventListener('animationend', () => {
+            document.body.removeChild(explosionEffect);
         });
     });
+
 });
