@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('/assets/sounds/explode.mp3')
         fetch('/assets/sounds/squeaking.mp3')
     }
-    
+    window.onload = fetcher()
+
     function loadTyping(text, container, startup) {
         const element = document.getElementById(container);
         const pageElement = document.getElementById('sel-lang');
@@ -100,11 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
     });
 
-    window.onload = fetcher()
-
     loadTyping('KeyDevS', 'typing', true);
     document.getElementById('explode').addEventListener('click', () => {
-
         const explodeContainer = document.getElementById('explode-container');
         explodeContainer.style.display = 'none';
 
@@ -114,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const explodeSound = new Audio('/assets/sounds/explode.mp3');
         explodeSound.play();
+
         setTimeout(() => {
             document.body.style.backgroundColor = 'red';
             document.body.style.transition = 'background-color 0.5s ease';
@@ -135,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 4500)
         }, 350);
 
+        // Remove explosion effect after animation completes
         explosionEffect.addEventListener('animationend', () => {
             document.body.removeChild(explosionEffect);
         });
