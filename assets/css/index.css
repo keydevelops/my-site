@@ -113,7 +113,7 @@ body {
   position: fixed;
   width: 200px;
   height: 200px;
-  background: url('explosion.png') center center no-repeat;
+  background: url('/assets/imgs/explosion.png') center center no-repeat;
   background-size: cover;
   z-index: 9999;
   animation: explode-animation 1s forwards;
