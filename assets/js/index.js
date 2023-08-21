@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     function fetcher() {
-        fetch('/assets/css/explosion.png')
+        fetch('/assets/imgs/explosion.png')
         fetch('/assets/sounds/explode.mp3')
         fetch('/assets/sounds/squeaking.mp3')
     }
