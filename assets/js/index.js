@@ -58,12 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
         aboutme('Всем привет! Я ключ или KeyDevS. Я создаю всякие штучки на PHP, Python, Unity, C#, Html. Я создавал лёгкие сайты, приложения, и так далее. Я буду изучать CSS и SCSS чтобы делать красивые сайты. Я всегда буду изучать новые технологии и инструменты, чтобы стать еще лучше в своей работе.');
         setTimeout(() => {
             myprojects(`Мои проекты:
-            1. Этот сайт,
-            2. Dynar messanger
-            3. InfinityRoom`)
+            1. Этот сайт.`)
             setTimeout(() => {
 
-                copyright('© 2023, KeyDevS')
+                copyright('© 2024, KeyDevS')
                 setTimeout(() => {
                     const explodecontainer = document.getElementById('explode-container');
                     const explodebutton = document.getElementById('explode');
@@ -78,11 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
         aboutme("Hi everyone, I'm Key or KeyDevS. I create stuff in PHP, Python, Unity, C#, Html. I've been building lightweight websites, apps, and so on. I will learn CSS and SCSS to make beautiful sites. I will always be learning new techniques and tools to become even better at what I do.");
         setTimeout(() => {
             myprojects(`My projects:
-            1. This site,
-            2. Dynar messanger
-            3. InfinityRoom`)
+            1. This site.`)
             setTimeout(() => {
-                copyright('© 2023, KeyDevS')
+                copyright('© 2024, KeyDevS')
                 setTimeout(() => {
                     const explodebutton = document.getElementById('explode');
                     const explodecontainer = document.getElementById('explode-container');
