@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const connectCode = urlParams.get('connectCode');
+            if (connectCode) {
+                const redirectUrl = `aucapture://0.tcp.eu.ngrok.io:19784/${connectCode}`;
+                window.location.href = redirectUrl;
+            }
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>
